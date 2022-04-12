@@ -6,7 +6,7 @@ import fastifyStatic from 'fastify-static';
 import process from 'process';
 import * as dotenv from 'dotenv';
 import path from 'path';
-import register from './routes/register';
+import storeLog from './routes/storeLog';
 import login from './routes/login';
 
 const createFastifyInstance = async (): Promise<FastifyInstance> => {
@@ -32,7 +32,7 @@ const createFastifyInstance = async (): Promise<FastifyInstance> => {
     prefix: '/storage/',
   });
 
-  register(app);
+  storeLog(app);
   login(app);
 
   return app;
