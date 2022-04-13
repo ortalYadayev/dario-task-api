@@ -49,17 +49,11 @@
   },
   "scripts": {
     "serve": "ts-node-dev src/app.ts",
-    "build": "@todo",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
-    "test:coverage:watch": "jest --coverage --watchAll",
     "typeorm": "ts-node node_modules/.bin/typeorm",
     "migration:generate": "ts-node node_modules/.bin/typeorm migration:generate --pretty",
     "migration:run": "ts-node node_modules/.bin/typeorm migration:run",
     "migration:revert": "ts-node node_modules/.bin/typeorm migration:revert",
     "format": "prettier --config .prettierrc '**/*.(ts|js|json|md)' --write",
-    "lint": "eslint . --ext=ts --fix",
     "prepare": "husky install"
   }
 }

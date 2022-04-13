@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import BaseEntity from './BaseEntity';
-import { Number } from "./number.entity";
+import { Number } from './number.entity';
 
 @Entity('countries')
 export class Country extends BaseEntity {
@@ -10,6 +10,6 @@ export class Country extends BaseEntity {
   @Column()
   country_title!: string;
 
-  @OneToMany(() => Number, number => number.country)
+  @OneToMany(() => Number, (number) => number.country)
   numbers: Number[];
 }

@@ -1,13 +1,13 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class tables1649758135524 implements MigrationInterface {
-    name = 'tables1649758135524'
+export class tables1649852158628 implements MigrationInterface {
+    name = 'tables1649852158628'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
             CREATE TABLE \`countries\` (
                 \`id\` int NOT NULL AUTO_INCREMENT,
-                \`createdAt\` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+                \`createdAt\` datetime(6) NOT NULL DEFAULT x(6),
                 \`updatedAt\` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
                 \`country_code\` varchar(255) NOT NULL,
                 \`country_title\` varchar(255) NOT NULL,

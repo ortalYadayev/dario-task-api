@@ -8,7 +8,7 @@ const startApp = async (): Promise<FastifyInstance> => {
   await createConnection();
 
   try {
-    await app.listen(Number(process.env.APP_PORT));
+    await app.listen(Number(process.env.APP_PORT), '127.0.0.1');
   } catch (error) {
     app.log.error(error);
     process.exit(1);

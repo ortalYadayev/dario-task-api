@@ -1,13 +1,11 @@
 import fastify, { FastifyInstance } from 'fastify';
-import fastifyCompress from 'fastify-compress';
-import fastifyAuth from 'fastify-auth';
 import fastifyCors from 'fastify-cors';
-import fastifyStatic from 'fastify-static';
 import process from 'process';
 import * as dotenv from 'dotenv';
 import path from 'path';
-import storeLog from './routes/storeLog';
-import login from './routes/login';
+import log from './routes/log';
+import getCountries from './routes/getCountries';
+import getUsers from './routes/getUsers';
 
 const createFastifyInstance = async (): Promise<FastifyInstance> => {
   dotenv.config({ path: path.resolve(__dirname, '../.env') });
@@ -20,20 +18,15 @@ const createFastifyInstance = async (): Promise<FastifyInstance> => {
     }
   });
 
-  app.register(fastifyCompress);
-  app.register(fastifyAuth);
   app.register(fastifyCors, {
-    origin: process.env.USER_APP_URL,
+    origin: process.env.VITE_APP_URL,
     methods: '*',
     allowedHeaders: '*',
   });
-  app.register(fastifyStatic, {
-    root: path.join(__dirname, '../public'),
-    prefix: '/storage/',
-  });
 
-  storeLog(app);
-  login(app);
+  log(app);
+  getCountries(app);
+  getUsers(app);
 
   return app;
 };
