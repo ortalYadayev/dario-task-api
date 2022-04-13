@@ -1,10 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { Static, Type } from '@sinclair/typebox';
 import { SendLog } from '../entities/sendLog.entity';
-import { Between } from "typeorm";
-import {User} from "../entities/user.entity";
-import {Country} from "../entities/country.entity";
-import {Number} from "../entities/number.entity";
 
 const ParamsSchema = {
   dateFrom: Type.RegEx(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/),
